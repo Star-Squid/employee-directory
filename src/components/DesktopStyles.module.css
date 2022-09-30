@@ -1,0 +1,8 @@
+@import "../styles/vars.css";
+
+.desktop {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15ch), 1fr));
+  min-height:80vh;
+}

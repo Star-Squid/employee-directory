@@ -1,0 +1,24 @@
+:root {
+  --regular: clamp(1rem, 2vmin, 2rem);
+
+  --white: #f4f4f4;
+  --almostwhite: #e4e4e4;
+  --accent: #e4524c;
+
+  --black: #1c1716;
+  --dark: #2e3842;
+  --halfdark: #2e3842e1;
+  --medium: #3e3e3e;
+  --halfmedium: #3e3e3ecc;
+
+  --scrollbarBG: #e4524c;
+  --thumbBG: #2e3842;
+
+  --shadow-color: 0deg 0% 60%;
+
+  --shadow:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+}
