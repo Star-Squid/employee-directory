@@ -1,8 +1,9 @@
 @import "../styles/vars.css";
 
 .desktop {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15ch), 1fr));
+    padding: 2rem 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
   min-height:80vh;
 }

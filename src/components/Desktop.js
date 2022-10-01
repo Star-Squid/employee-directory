@@ -9,7 +9,12 @@ function Desktop() {
     <>
     <Navigation></Navigation>
     <main class={styles.desktop}>
-      <Card></Card>
+    <Card name={"Booboo the Clown"} position={"Bastard"} info={"Worst person ever"}></Card>
+    <Card name={"Name Surname"} position={"Work Position"} info={"He enjoys riding horses and cowboys"} photo={url("faces/john.webp")}></Card>
+    <Card></Card>
+    <Card></Card>
+    <Card></Card>
+    <Card></Card>
     </main>
     
     </>

@@ -1,29 +1,85 @@
 
-.outer{
-    display: grid;
-    width: 10rem;
-    padding: 1rem;
-    justify-items: center;
+/* .outer{
+    position: relative;
+    display: flex;
+    width: 13rem;
+    height: 13rem;
+    padding: 0;
+    justify-content: center;
     min-height: 11rem;
-    place-items: center;
 }
 
 .photo{
     position:absolute;
+    top: 0;
     border-radius: 50%;
-    align-self: start;
-    justify-self: center;
     width: 10rem; 
 height: 10rem; 
-object-fit: contain;
+object-fit: cover;
+z-index: 2;
 }
 
 .description{
-    padding-top: 2rem;
+    position:absolute;
+    top: 7rem;
+    padding: 4rem 1rem 1rem;
     width: 13rem; 
 min-height: 10rem; 
 align-self: end;
 border-radius: 0.5rem;
 box-shadow: var(--shadow);
 
+} */
+
+.outer{
+    /* border: red thin solid; */
+    display: grid;
+    width: fit-content;
+    min-width: fit-content;
+    max-width: 40ch;
+    /* width: 500px;
+    height: 500px; */
+    grid-template-rows: 4rem 2rem auto;
+    grid-template-columns: 1fr 6rem 1fr;
+
+}
+
+.photo{
+    grid-area: 1 / 2 / span 2 / span 1;
+
+    border-radius: 50%;
+    width: 100%; 
+height: 100%; 
+object-fit: cover;
+z-index: 2;
+}
+
+
+.infoArea{
+    grid-area: 2 / 1 / span 2 / span 3;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    background-color: var(--white);
+}
+
+.description{
+    grid-area: 3 / 1 / span 1 / span 3;
+    /* background-color:aqua; */
+    padding: 1rem;
+}
+
+.name{
+    font-weight: bold;
+}
+
+.position{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--grey);
+}
+
+.name,
+.position,
+.info {
+padding: 0.2rem 0;
 }

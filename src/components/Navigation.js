@@ -3,6 +3,8 @@ import styles from "./NavigationStyles.module.css";
 
 function Navigation() {
   return (
+    <>
+    <div class={styles.overlay}></div>
     <nav class={styles.nav}>
     <ul>
       <li>
@@ -31,6 +33,7 @@ function Navigation() {
       </li>
     </ul>
   </nav>
+  </>
   );
 }
 
