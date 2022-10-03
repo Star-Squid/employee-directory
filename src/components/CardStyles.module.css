@@ -1,120 +1,119 @@
 @import url(../styles/vars.css);
-/* .outer{
-    position: relative;
-    display: flex;
-    width: 13rem;
-    height: 13rem;
-    padding: 0;
-    justify-content: center;
-    min-height: 11rem;
-}
 
-.photo{
-    position:absolute;
-    top: 0;
-    border-radius: 50%;
-    width: 10rem; 
-height: 10rem; 
-object-fit: cover;
-z-index: 2;
-}
-
-.description{
-    position:absolute;
-    top: 7rem;
-    padding: 4rem 1rem 1rem;
-    width: 13rem; 
-min-height: 10rem; 
-align-self: end;
-border-radius: 0.5rem;
-box-shadow: var(--shadow);
-
-} */
-
-.outer{
-    /* border: red thin solid; */
+.tooltip {
     display: grid;
     width: fit-content;
-    /* min-width: fit-content; */
     max-width: 40ch;
-    /* width: 500px;
-    height: 500px; */
-    grid-template-rows: 4rem 2rem auto;
-    grid-template-columns: 1fr 6rem 1fr;
-
-}
-
-.photo{
-    grid-area: 1 / 2 / span 2 / span 1;
-
-    border-radius: 50%;
-    width: 100%; 
-height: 100%; 
-object-fit: cover;
-z-index: 2;
-}
-
-.managerPhoto{
-    grid-area: 1 / 2 / span 2 / span 1;
-
-    border-radius: 50%;
-    border: solid 3px var(--grey);
-    width: 100%; 
-height: 100%; 
-object-fit: cover;
-z-index: 2;
-}
-
-.infoArea{
-    grid-area: 2 / 1 / span 2 / span 3;
+  
+    /* overflow: auto; */
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
-    background-color: var(--white);
+    background-color: var(--grey);  
+    padding:1rem;
+    color: white;
+    font-size: 0.9rem;
+
+    visibility: hidden;
+    position: absolute;
+    top: 5rem;
+    z-index: 2;
+    transition: opacity 0.5s;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
 }
 
-.infoContent{
-    grid-area: 3 / 1 / span 1 / span 3;
-    /* background-color:aqua; */
-    padding: 1rem;
-    /* line-height: 1.3; */
-    overflow: auto;
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent var(--grey) transparent;
+  }
 
+.outer:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    /* transition: visibility 1s; */
+
+  }
+
+.outer {
+    position: relative;
+  display: grid;
+  width: fit-content;
+  max-width: 40ch;
+
+  grid-template-rows: 4rem 2rem auto;
+  grid-template-columns: 1fr 6rem 1fr;
 }
 
-.infoContent h2{
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 0.2rem;
+.photo {
+  grid-area: 1 / 2 / span 2 / span 1;
 
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
 }
 
-.position{
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: var(--grey);
-    padding: 0.2rem;
+.managerPhoto {
+  grid-area: 1 / 2 / span 2 / span 1;
 
+  border-radius: 50%;
+  border: solid 3px var(--grey);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
 }
 
-/* .infoContent p {
-padding: 0.2rem 0;
-} */
+.infoArea {
+  grid-area: 2 / 1 / span 2 / span 3;
+
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  background-color: var(--white);
+}
+
+.infoContent {
+  grid-area: 3 / 1 / span 1 / span 3;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.infoContent h2 {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+}
+
+.position {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--grey);
+  padding: 0.2rem;
+}
 
 .infoContent p:not(.description, .pronoun) {
-    text-align: left;
-    padding: 0.3rem;
+  text-align: left;
+  padding: 0.3rem;
 }
 
-.infoContent .description, .pronoun {
-    font-style: italic;
-    padding: 0.3rem;
+.infoContent .description,
+.pronoun {
+  font-style: italic;
+  padding: 0.3rem;
 }
 
 .keyword {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .email {
-    font-weight: bold;
-    text-align: center;
+  font-weight: bold;
+  text-align: center;
 }
