@@ -1,48 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Hamburger from "../images/Hamburger";
+import Roof from "../images/Roof";
 import styles from "./SmoothNavigation.module.css";
 
-// function openNav() {
-//   document.querySelector(".sidebar").style.width = "250px";
-//   document.querySelector(".main").style.marginLeft = "250px";
-// }
-
-// function closeNav() {
-//   document.querySelector(".mySidebar").style.width = "0";
-//   document.querySelector(".main").style.marginLeft= "0";
-// }
+function displayRoof(isMenuOpen) {
+  if (!isMenuOpen) {
+    return <Hamburger color="white" />;
+  } else {
+    return <Roof color="white" />;
+  }
+}
 
 export default function SmoothNavigation() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function pulloutMenu() {
+    if (menuOpen) {
+      setMenuOpen(false);
+      document.querySelector(".sidebar")
+      document.querySelector(".sidebar").classList.add("styles.undisplay");
+    } else {
+      setMenuOpen(true);
+      document.querySelector(".sidebar").classList.remove("styles.undisplay");
+    }
+  }
+
+  // useEffect(() => {
+  //   document.title = `the menu is ${menuOpen} `;
+  // });
+
+
   return (
-<>
-<div className={styles.head}>
-<div className={styles.icon}>☰</div> 
-<div>Filename.csv</div>
-</div>
+    <>
+      <div className={styles.head}>
 
-{/* <div className={styles.sidebar}>
-  <span className={styles.closebtn} onClick={closeNav}>×</span>
-  <ul className={styles.menuItems}>
-      <li>File name.csv</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-      <li>Menu item</li>
-    </ul>
-</div>
+        <div className={styles.icon} tabIndex={0} onClick={pulloutMenu}>
+          {displayRoof(menuOpen)}
+        </div>
+        <div>Filename.csv</div>
+      </div>
 
-<div className={styles.main}>
-  <button className={styles.openbtn} onClick={openNav}>☰ Filename.csv</button>  
-  <h2>Collapsed Sidebar</h2>
-  <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
-</div> */}
+      {menuOpen ? (<div className={styles.sidebar}>
+        <div className={styles.menu}>
+          <ul className={styles.menuItems}>
+            <li>Menu item</li>
+            <li>Menu item</li>
+            <li>Menu item</li>
+            <li>Menu item</li>
+            <li>Menu item</li>
+            <li>Menu item</li>
+            <li>Menu item</li>
+          </ul>
+        </div>
+      </div>) : (<div></div>)}
 
-  
-  </>
-  
+    </>
   );
-;}
-
-
+}
