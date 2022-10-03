@@ -5,8 +5,8 @@ import styles from "./HeaderStyles.module.css";
 
 function Header() {
   return (
-    <header class={styles.header}>
-      <h1 class={styles.title}>
+    <header className={styles.header}>
+      <h1 className={styles.title}>
         <img src={logo} alt="" /> Employee Directory
       </h1></header>
   );

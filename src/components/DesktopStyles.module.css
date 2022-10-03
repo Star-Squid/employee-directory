@@ -3,7 +3,7 @@
 .desktop {
     padding: 2rem 1rem;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   gap: 1rem;
   min-height:80vh;
 }

@@ -4,15 +4,15 @@ import styles from "./NavigationStyles.module.css";
 function Navigation() {
   return (
     <>
-    <div class={styles.overlay}></div>
-    <nav class={styles.nav}>
+    <div className={styles.overlay}></div>
+    <nav className={styles.nav}>
     <ul>
       <li>
-        <a href="#menu" class={styles.menuToggle}>
+        <a href="#menu" className={styles.menuToggle}>
           <span>Menu</span>
         </a>
-        <div class={styles.menu}>
-          <ul class={styles.menuItems}>
+        <div className={styles.menu}>
+          <ul className={styles.menuItems}>
             <li>
               <a href="index.html">Home</a>
             </li>
