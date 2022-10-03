@@ -1,0 +1,18 @@
+@import "../styles/vars.css";
+
+.head {
+  position: sticky;
+  width: 100%;
+  background-color: var(--accent);
+  text-align: left;
+  color: var(--white);
+  padding: 1rem;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+}
+
+.icon{
+ font-size: 2rem;
+}

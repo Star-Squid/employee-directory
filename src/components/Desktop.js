@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./DesktopStyles.module.css";
 import Card from "./Card";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
+import SmoothNavigation from "./SmoothNavigation";
 import pictureJohn from "../external/john.png";
 
 function Desktop() {
   return (
     <>
-      <Navigation></Navigation>
+      <SmoothNavigation></SmoothNavigation>
       <main className={styles.desktop}>
         <Card
           name={"Booboo the Clown"}
@@ -16,7 +17,7 @@ function Desktop() {
         ></Card>
         <Card
           name={"John Hamster"}
-          position={"Work Position"}
+          position={"Work Pet"}
           info={"He enjoys riding horses and cowboys"}
           photo={pictureJohn}
           isManager={true}
