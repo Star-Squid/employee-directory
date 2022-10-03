@@ -1,9 +1,9 @@
 @import "../styles/vars.css";
 
 .head {
-  position:sticky;
-  left:0;
-  top:0;
+  position: sticky;
+  left: 0;
+  top: 0;
   z-index: 6;
 
   width: 100%;
@@ -19,23 +19,25 @@
   box-shadow: var(--shadow);
 }
 
-.icon{
- /* font-size: 2rem; */
- width: 1.2rem;
- height: 1.2rem;
- opacity: 1;
- cursor: pointer;
- transition: opacity 0.5s;
+.icon {
+  /* font-size: 2rem; */
+  width: 1.2rem;
+  height: 1.2rem;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
 }
-
-.icon:active{
+.icon:hover {
+  opacity: 0.8;
+}
+.icon:active {
   opacity: 0;
 }
 
-.sidebar{
-  position:sticky;
-  left:0;
-  top:3.2rem;
+.sidebar {
+  position: sticky;
+  left: 0;
+  top: 3.2rem;
   z-index: 6;
   width: 100%;
   background-color: transparent;
@@ -44,19 +46,60 @@
   text-align: left;
 }
 
-.undisplay{
-  visibility: hidden;
-}
-
-.sidebar .menu{
+.sidebar .menu {
   width: 50%;
   background-color: var(--accent);
   height: 100%;
   box-shadow: var(--shadow);
   padding: 1rem;
-
+  overflow: auto;
 }
 
-.menuItems li{
+.menuItems li {
   padding: 0.3rem 0;
+}
+
+.hr{
+  border-width: 0 0 1px 0;
+  border-color: var(--lightgrey);
+  border-style: dotted;
+}
+
+/* search */
+
+.searchInput {
+  width: 80%;
+  padding: 0.6rem;
+
+  background-color: transparent;
+
+  font-size: 0.8rem;
+
+  color: var(--white);
+
+  background-image: url("../images/filter.svg");
+  background-repeat: no-repeat;
+  background-size: 1.1rem 1.1rem;
+  background-position: 95% center;
+  border-radius: 1rem;
+  border: 1px solid var(--almostwhite);
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  /* transform-style: preserve-3d; */
+}
+
+.searchInput::placeholder {
+  color: var(--almostwhite);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.searchInput:hover,
+.searchInput:focus {
+  padding: 0.6rem;
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--almostwhite);
+  border-radius: 0;
+  background-position: 100% center;
 }

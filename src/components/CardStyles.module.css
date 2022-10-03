@@ -8,7 +8,7 @@
     /* overflow: auto; */
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
-    background-color: var(--grey);  
+    background-color: var(--mist);  
     padding:1rem;
     color: white;
     font-size: 0.9rem;
@@ -30,7 +30,7 @@
     margin-left: -7px;
     border-width: 7px;
     border-style: solid;
-    border-color: transparent transparent var(--grey) transparent;
+    border-color: transparent transparent var(--mist) transparent;
   }
 
 .outer:hover .tooltip {
