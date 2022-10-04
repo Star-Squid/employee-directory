@@ -3,6 +3,12 @@ import Hamburger from "../images/Hamburger";
 import Roof from "../images/Roof";
 import styles from "./SmoothNavigation.module.css";
 import UploadImg from "../images/upload.svg";
+import SortImg from "../images/sort.svg";
+import Grid from "../images/grid.svg";
+import Software from "../images/software.svg";
+import Skills from "../images/skills.svg";
+import Projects from "../images/projects.svg";
+import Location from "../images/location.svg";
 
 function displayRoof(isMenuOpen) {
   if (!isMenuOpen) {
@@ -18,11 +24,8 @@ export default function SmoothNavigation() {
   function pulloutMenu() {
     if (menuOpen) {
       setMenuOpen(false);
-      document.querySelector(".sidebar");
-      document.querySelector(".sidebar").classList.add("styles.undisplay");
     } else {
       setMenuOpen(true);
-      document.querySelector(".sidebar").classList.remove("styles.undisplay");
     }
   }
 
@@ -57,7 +60,25 @@ export default function SmoothNavigation() {
               </li>
               <hr className={styles.hr} />
 
-              <li>Display:</li>
+              <li>
+                <label for="sorter">
+                  <img className={styles.icon} src={SortImg} alt="" /> Sort by:
+                </label>
+              </li>
+              <li>
+                <select id="sorter" name="sorter" form="sorter">
+                  <option value="name">name</option>
+                  <option value="jobtitle">job title</option>
+                  <option value="location">location</option>
+                  <option value="department">department</option>
+                  <option value="team">team</option>                  <option value="subteam">sub-team</option>                  <option value="manager">manager</option>                  <option value="currentprojects">current projects</option>                  <option value="allprojects">all projects</option>                  <option value="hiredate">hire date</option> 
+                </select>
+              </li>
+              <hr className={styles.hr} />
+
+              <li>
+                <img src={Grid} className={styles.icon} alt="" /> Display:
+              </li>
               <li>
                 <label>
                   <input type="checkbox" name="isManager" value="isManager" />{" "}
@@ -90,7 +111,9 @@ export default function SmoothNavigation() {
                 </label>
               </li>
               <hr className={styles.hr} />
-              <li>Software:</li>
+              <li>
+                <img className={styles.icon} src={Location} alt="" /> Location:
+              </li>
               <li>
                 <label>
                   <input type="checkbox" name="isManager" value="isManager" />{" "}
@@ -107,7 +130,49 @@ export default function SmoothNavigation() {
                 </label>
               </li>
               <hr className={styles.hr} />
-              <li>Other skills:</li>
+              <li>
+                <img src={Software} className={styles.icon} alt="" /> Software:
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="isManager" value="isManager" />{" "}
+                  managers
+                </label>
+
+                <label>
+                  <input
+                    type="checkbox"
+                    name="isNotManager"
+                    value="isNotManager"
+                  />{" "}
+                  non-managers
+                </label>
+              </li>
+              <hr className={styles.hr} />
+              <li>
+                <img className={styles.icon} src={Skills} alt="" /> Other
+                skills:
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="isManager" value="isManager" />{" "}
+                  managers
+                </label>
+
+                <label>
+                  <input
+                    type="checkbox"
+                    name="isNotManager"
+                    value="isNotManager"
+                  />{" "}
+                  non-managers
+                </label>
+              </li>
+              <hr className={styles.hr} />
+
+              <li>
+                <img className={styles.icon} src={Projects} alt="" /> Projects:
+              </li>
               <li>
                 <label>
                   <input type="checkbox" name="isManager" value="isManager" />{" "}

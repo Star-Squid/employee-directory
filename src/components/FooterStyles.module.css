@@ -1,3 +1,25 @@
-.title {
-  color: pink;
+@import url(../styles/vars.css);
+
+.footer {
+  padding: 2rem 0;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  border: solid thin var(--accent);
+  border-width: 0 0 thin 0;
+  padding: 0 calc(0.1rem + 1px);
+}
+
+.footer a:hover {
+  color: var(--grey);
+  border-color: var(--grey);
+}
+
+.footer a:focus,
+.footer a:active {
+  color: var(--grey);
+  border-width: thin;
+  padding: 0.1rem;
 }
