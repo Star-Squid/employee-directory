@@ -37,6 +37,7 @@
     visibility: visible;
     opacity: 1;
     /* transition: visibility 1s; */
+    /* display:block; */
 
   }
 
@@ -44,7 +45,7 @@
     position: relative;
   display: grid;
   width: fit-content;
-  max-width: 40ch;
+  max-width: 30ch;
 
   grid-template-rows: 4rem 2rem auto;
   grid-template-columns: 1fr 6rem 1fr;
@@ -98,7 +99,7 @@
   padding: 0.2rem;
 }
 
-.infoContent p:not(.description, .pronoun) {
+.infoContent p:not(.description, .pronoun, .email) {
   text-align: left;
   padding: 0.3rem;
 }
@@ -115,5 +116,5 @@
 
 .email {
   font-weight: bold;
-  text-align: center;
+  /* text-align: center; */
 }

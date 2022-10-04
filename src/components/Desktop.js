@@ -12,15 +12,20 @@ function Desktop() {
       <main className={styles.desktop}>
         <Card
           name={"Booboo the Clown"}
-          position={"Bastard"}
-          info={"Worst person ever"}
+          preferredName={"Darling"}
+          title={"Bastard"}
+          department={"Clowning Inc"}
+          isManager={true}
+
+          description={"Worst person ever"}
         ></Card>
         <Card
           name={"John Hamster"}
-          position={"Work Pet"}
-          info={"He enjoys riding horses and cowboys"}
+          title={"Work Pet"}
+          description={"He enjoys riding horses and cowboys"}
           photo={pictureJohn}
           isManager={true}
+          email={"hamster@company.co.uk"}
         ></Card>
         <Card></Card>
         <Card></Card>

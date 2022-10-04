@@ -9,6 +9,7 @@ import Software from "../images/software.svg";
 import Skills from "../images/skills.svg";
 import Projects from "../images/projects.svg";
 import Location from "../images/location.svg";
+import Anniversary from "../images/anniversary.svg";
 
 function displayRoof(isMenuOpen) {
   if (!isMenuOpen) {
@@ -46,7 +47,7 @@ export default function SmoothNavigation() {
         <div className={styles.sidebar}>
           <div className={styles.menu}>
             <ul className={styles.menuItems}>
-              <li>
+              <li className={styles.menuHead}>
                 <img className={styles.icon} src={UploadImg} alt="" /> Upload
                 new file
               </li>
@@ -60,7 +61,7 @@ export default function SmoothNavigation() {
               </li>
               <hr className={styles.hr} />
 
-              <li>
+              <li className={styles.menuHead}>
                 <label for="sorter">
                   <img className={styles.icon} src={SortImg} alt="" /> Sort by:
                 </label>
@@ -71,17 +72,24 @@ export default function SmoothNavigation() {
                   <option value="jobtitle">job title</option>
                   <option value="location">location</option>
                   <option value="department">department</option>
-                  <option value="team">team</option>                  <option value="subteam">sub-team</option>                  <option value="manager">manager</option>                  <option value="currentprojects">current projects</option>                  <option value="allprojects">all projects</option>                  <option value="hiredate">hire date</option> 
+                  <option value="team">team</option>
+                  <option value="subteam">sub-team</option>
+                  <option value="manager">manager</option>
+                  <option value="currentprojects">current projects</option>
+                  <option value="allprojects">all projects</option>
+                  <option value="hiredate">hire date</option>
                 </select>
               </li>
               <hr className={styles.hr} />
 
-              <li>
+              <li className={styles.menuHead}>
                 <img src={Grid} className={styles.icon} alt="" /> Display:
               </li>
+
               <li>
+              <div className={styles.checkboxArea}>
                 <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
+                  <input type="checkbox" name="isManager" value="isManager" />
                   managers
                 </label>
 
@@ -90,103 +98,129 @@ export default function SmoothNavigation() {
                     type="checkbox"
                     name="isNotManager"
                     value="isNotManager"
-                  />{" "}
+                  />
                   non-managers
                 </label>
+                </div>
               </li>
 
               <li>
-                <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
-                  managers
-                </label>
+                <div className={styles.checkboxArea}>
+                  <label>
+                    <input type="checkbox" name="location" value="location" />
+                    location
+                  </label>
 
-                <label>
-                  <input
-                    type="checkbox"
-                    name="isNotManager"
-                    value="isNotManager"
-                  />{" "}
-                  non-managers
-                </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="department"
+                      value="department"
+                    />
+                    department
+                  </label>
+                  <label>
+                    <input type="checkbox" name="team" value="team" />
+                    team
+                  </label>
+                  <label>
+                    <input type="checkbox" name="subteam" value="subteam" />
+                    sub-team
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="manager" value="manager" />
+                    manager
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="currentprojects"
+                      value="currentprojects"
+                    />
+                    current projects
+                  </label>
+
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="allprojects"
+                      value="allprojects"
+                    />
+                    all projects
+                  </label>
+                  <label>
+                    <input type="checkbox" name="hiredate" value="hiredate" />
+                    hire date
+                  </label>
+                </div>
               </li>
               <hr className={styles.hr} />
-              <li>
+              <li className={styles.menuHead}>
                 <img className={styles.icon} src={Location} alt="" /> Location:
               </li>
               <li>
+              <div className={styles.checkboxArea}>
                 <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
-                  managers
+                  <input type="checkbox" name="" value="" />
+                  from cards
                 </label>
-
-                <label>
-                  <input
-                    type="checkbox"
-                    name="isNotManager"
-                    value="isNotManager"
-                  />{" "}
-                  non-managers
-                </label>
+                </div>
               </li>
               <hr className={styles.hr} />
-              <li>
+              <li className={styles.menuHead}>
                 <img src={Software} className={styles.icon} alt="" /> Software:
               </li>
               <li>
+              <div className={styles.checkboxArea}>
                 <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
-                  managers
+                  <input type="checkbox" name="" value="" />
+                  from cards
                 </label>
-
-                <label>
-                  <input
-                    type="checkbox"
-                    name="isNotManager"
-                    value="isNotManager"
-                  />{" "}
-                  non-managers
-                </label>
+                </div>
               </li>
               <hr className={styles.hr} />
-              <li>
+              <li className={styles.menuHead}>
                 <img className={styles.icon} src={Skills} alt="" /> Other
                 skills:
               </li>
               <li>
+              <div className={styles.checkboxArea}>
                 <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
-                  managers
+                  <input type="checkbox" name="" value="" />
+                  from cards
                 </label>
-
-                <label>
-                  <input
-                    type="checkbox"
-                    name="isNotManager"
-                    value="isNotManager"
-                  />{" "}
-                  non-managers
-                </label>
+                </div>
               </li>
               <hr className={styles.hr} />
 
-              <li>
+              <li className={styles.menuHead}>
                 <img className={styles.icon} src={Projects} alt="" /> Projects:
               </li>
               <li>
+              <div className={styles.checkboxArea}>
                 <label>
-                  <input type="checkbox" name="isManager" value="isManager" />{" "}
-                  managers
+                  <input type="checkbox" name="" value="" />
+                  from cards
                 </label>
+                </div>
+              </li>
+              <hr className={styles.hr} />
 
-                <label>
-                  <input
-                    type="checkbox"
-                    name="isNotManager"
-                    value="isNotManager"
-                  />{" "}
-                  non-managers
+              <li className={styles.menuHead}>
+                {" "}
+                <label for="anniversary">
+                  <img className={styles.icon} src={Anniversary} alt="" />{" "}
+                  Anniversary:
                 </label>
+              </li>
+              <li>
+                <select id="anniversary" name="anniversary" form="anniversary">
+                  <option value="anniversary6">within 6 months</option>
+                  <option value="anniversary3">within 3 months</option>
+                  <option value="anniversary1">within 1 month</option>
+                  <option value="anniversarypast3">in the past 3 months</option>
+                </select>
               </li>
             </ul>
           </div>
