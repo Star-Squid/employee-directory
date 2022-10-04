@@ -174,14 +174,18 @@ function Card(props) {
               src={props.photo}
               alt={props.name}
               className={styles.managerPhoto}
+              onMouseEnter={() => setTooltipShown(true)}
             />
           ) : (
-            <img src={props.photo} alt="" className={styles.photo} />
+            <img src={props.photo} alt="" className={styles.photo}
+            onMouseEnter={() => setTooltipShown(true)} />
           )
         ) : props.isManager ? (
-          <img src={defaultPhoto} alt="" className={styles.managerPhoto} />
+          <img src={defaultPhoto} alt="" className={styles.managerPhoto}
+          onMouseEnter={() => setTooltipShown(true)} />
         ) : (
-          <img src={defaultPhoto} alt="" className={styles.photo} />
+          <img src={defaultPhoto} alt="" className={styles.photo}
+          onMouseEnter={() => setTooltipShown(true)} />
         )}
 
         <div className={styles.infoArea}></div>
@@ -196,24 +200,19 @@ function Card(props) {
           }
         })()}  */}
           {showPreferredName}
-          <h2
-            onMouseEnter={() => setTooltipShown(true)}
-            onMouseLeave={() => setTooltipShown(false)}
-          >
+          <h2>
             {props.name}
           </h2>
           {showPronoun}
           {showCustomTitle} {showTitle}
           <p
-            onMouseEnter={() => setTooltipShown(true)}
-            onMouseLeave={() => setTooltipShown(false)}
             className={styles.email}
           >
             {props.email}
           </p>
           <hr />
           {showDescription}
-          {showHobbies}
+          {/* {showHobbies}
           {showLocation}
           {showDepartment}
           {showTeam}
@@ -223,19 +222,20 @@ function Card(props) {
           {showHardSkills}
           {showCurrentProjects}
           {showPastProjects}
-          {showHireDate}
+          {showHireDate} */}
         </div>
 
         {/* TOOLTIP */}
 
-        <button
+        {/* <button
           onMouseEnter={() => setTooltipShown(true)}
           onMouseLeave={() => setTooltipShown(false)}
         >
           Hover over me!
-        </button>
+        </button> */}
         {tooltipShown && (
-          <div className={styles.tooltip}>
+          <div className={styles.tooltip} 
+          onMouseLeave={() => setTooltipShown(false)}>
             <div className={styles.infoContent}>
               {showHobbies}
 
