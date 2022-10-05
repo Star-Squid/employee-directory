@@ -1,3 +1,5 @@
 # Employee directory
 
-Simple search and filter interface for a list of employees uploaded as a .csv file.
+A simple search and filter interface for a employee data uploaded as a .csv file.
+
+A sample file is available to download for testing.

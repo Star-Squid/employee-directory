@@ -51,18 +51,20 @@ export default function SmoothNavigation() {
                 <img className={styles.icon} src={UploadImg} alt="" /> Upload
                 new file
               </li>
-              <hr className={styles.hr} />
+              
+                <hr className={styles.hr} />
               <li>
                 <input
-                  class={styles.searchInput}
+                  className={styles.searchInput}
                   type="text"
                   placeholder="filter results"
                 />
+                <button className={styles.button}>Clear filters</button>
               </li>
               <hr className={styles.hr} />
 
               <li className={styles.menuHead}>
-                <label for="sorter">
+                <label htmlFor="sorter">
                   <img className={styles.icon} src={SortImg} alt="" /> Sort by:
                 </label>
               </li>
@@ -209,7 +211,7 @@ export default function SmoothNavigation() {
 
               <li className={styles.menuHead}>
                 {" "}
-                <label for="anniversary">
+                <label htmlFor="anniversary">
                   <img className={styles.icon} src={Anniversary} alt="" />{" "}
                   Anniversary:
                 </label>
