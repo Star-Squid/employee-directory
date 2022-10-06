@@ -9,7 +9,7 @@
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
   background-color: var(--mist);
-  padding: 1rem;
+  padding: 0.5rem;
   color: white;
   font-size: 0.9rem;
 
@@ -44,7 +44,7 @@
   display: grid;
   width: fit-content;
   max-width: 30ch;
-
+min-width: 20ch;
   grid-template-rows: 4rem 2rem auto;
   grid-template-columns: 1fr 6rem 1fr;
 }

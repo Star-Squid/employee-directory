@@ -1,6 +1,6 @@
-ID,PrimaryEmail,FullName,PreferedName,JobTitle,CustomTitle,Department,Team,SubTeam,ManagerEmail,Pronoun,Location,Description,Hobby,SoftwareSkills,HardSkills,CurrentProjects,PastProjects,HireDate,,,,,,Force_Sync
+ID,PrimaryEmail,FullName,PreferredName,JobTitle,CustomTitle,Department,Team,SubTeam,ManagerEmail,Pronoun,Location,Description,Hobby,SoftwareSkills,HardSkills,CurrentProjects,PastProjects,HireDate,,,,,,Force_Sync
 151,m.bijakowski@iwoca.co.uk,Mateusz Bijakowski,Mat,TechOps Engineer,IT Warlock,TAP,T&A - Tech,IT,j.turner@iwoca.co.uk,He/Him,London,Some description,"RPG, cRPG, Games, Books, sci-fi, fantasy, tech, gadgets, pool",lol what,"Sheets, AppsScript, Looker, Javascript, Google",UserManager,DeviceManager,01/07/2015,,,,,,
-1,n.surname@test.com,Name Surname,Prefered Name,Job Title,Custom Title,Department,Team,SubTeam,m.email.@test.com,He/Him,Location,Description,Hobby,Software Skill,Hard Skills,Current Projects,Past Projects,01/01/2010,,,,,,
+1,n.surname@test.com,Name Surname,Preferred Name,Job Title,Custom Title,Department,Team,SubTeam,m.email.@test.com,He/Him,Location,Description,Hobby,Software Skill,Hard Skills,Current Projects,Past Projects,01/01/2010,,,,,,
 29,not email,multi string name with-dash,.,testing,,,,,,,,,,,,,,broken date,,,,,,
 223,223email@test.com,,,Job Title1,Custom Title1,,,,,,,,,,,,,,,,,,,
 224,224email@test.com,,,Job Title1,Custom Title1,,,,,,,,,,,,,,,,,,,

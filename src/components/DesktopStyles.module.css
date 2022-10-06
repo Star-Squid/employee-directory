@@ -1,12 +1,12 @@
 @import "../styles/vars.css";
 
 .desktop {
-  padding: 2rem 1rem;
+  padding: 2rem 2.5rem;
   display: flex;
   flex-flow: row wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   min-height: 80vh;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   align-content: stretch;
 }
@@ -93,8 +93,7 @@
   font-weight: bold;
 }
 
-.button:hover,
-.button:active {
+.button:hover {
   background-color: var(--dark);
   color: var(--white);
   box-shadow: var(--shadow);
@@ -102,4 +101,11 @@
 
 .button:focus {
   box-shadow: var(--shadow);
+}
+
+.button:active {
+  background-color: var(--mist);
+  color: var(--white);
+  box-shadow: var(--shadow);
+  transition: all 250ms ease-in-out;
 }
