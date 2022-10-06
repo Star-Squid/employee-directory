@@ -55,16 +55,26 @@
   color: var(--white);
   text-align: left;
   /* overflow: auto; */
+  display: flex;
+  align-items: stretch;
+  justify-items: flex-start;
 }
 
 .sidebar .menu {
-  width: 50%;
+  width: 500px;
+  min-width: 50%;
   background-color: var(--accent);
   height: 100%;
   box-shadow: var(--shadow);
   padding: 1rem;
   overflow: auto;
   scrollbar-color: var(--dark) var(--accent);
+  flex-grow: 1;
+}
+
+.sidebar .notmenu {
+flex-grow: 1;
+flex-shrink: 1;
 }
 
 /* .sidebar .menu::-webkit-scrollbar-track {

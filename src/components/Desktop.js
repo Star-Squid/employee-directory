@@ -9,60 +9,73 @@ import UploadImg from "../images/upload.svg";
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
-// function activateUpload( ){
-//   const uploadButton = document.getElementById("csvInput");
-//   // uploadButton.click
-// }
-
 const Parser = () => {
-  // This state will store the parsed data
+  //store the parsed data
   const [data, setData] = useState([]);
 
-  // It state will contain the error when
-  // correct file extension is not used
+  // incorrect extension?
   const [error, setError] = useState("");
 
-  // It will store the file uploaded by the user
+  // uploaded file
   const [file, setFile] = useState("");
 
-  // This function will be called when
-  // the file input changes
+  const [cards, setCards] = useState([]);
+
   const handleFileChange = (e) => {
     setError("");
 
-    // Check if user has entered the file
+    // when a file is entered
     if (e.target.files.length) {
       const inputFile = e.target.files[0];
 
-      // Check the file extensions, if it not
-      // included in the allowed extensions
-      // we show the error
+      // is the file extension allowed?
       const fileExtension = inputFile?.type.split("/")[1];
       if (!allowedExtensions.includes(fileExtension)) {
-        setError("Please input a .csv file");
+        setError("Please select a .csv file");
         return;
       }
 
-      // If input type is correct set the state
+      // set state if correct file type
       setFile(inputFile);
     }
   };
+
   const handleParse = () => {
-    // If user clicks the parse button without
-    // a file we show a error
     if (!file) return setError("Enter a valid file");
 
-    // Initialize a reader which allows user
-    // to read any file or blob.
     const reader = new FileReader();
 
-    // Event listener on reader when the file
-    // loads, we parse it and set the data.
+    // Event listener on reader when the file loads
     reader.onload = async ({ target }) => {
       const csv = Papa.parse(target.result, { header: true });
       const parsedData = csv?.data;
-      const columns = Object.keys(parsedData[0]);
-      setData(columns);
+      // const columns = Object.keys(parsedData[0]);
+      // const row = Object.values(parsedData[1]);
+
+      for (let i = 0; i< parsedData.length; i++){
+        console.log(parsedData[i])
+
+        setCards([...cards, parsedData[i]])
+        
+        // setCards([
+        //   ...items,
+        //   {
+        //     id: items.length,
+        //     name: itemName
+        //   }
+        // ]);
+
+        // <Card/>
+      }
+      console.log("cards :", cards)
+      // const log = setData(row);
+      
+      // for (let i = 0; i< data.length; i++){
+      //   console.log(data[i])
+      // }
+      
+
+      // setData(columns);
     };
     reader.readAsText(file);
   };
@@ -73,18 +86,10 @@ const Parser = () => {
         <h2>Upload a .csv file to start</h2>
       </label>
       <p>
-        (you can use{" "}
-        <a href="../external/employee_directory_example.csv">this one</a> for
-        testing)
+        (e.g.{" "}
+        <a href="../external/employee_directory_example.csv">this one</a>)
       </p>
       <p>
-        {/*       
-                            <i id="1" onClick={function () {
- document.getElementById("2").click;
-}} className={styles.test} aria-hidden="true"></i>Upload Document
-                            <input id="2" style="display:none; "type="file" class="form-control col-lg-2 col-md-2 col-sm-2 "/> */}
-        {/* <img className={styles.icon} src={UploadImg} alt="upload file" onClick={activateUpload}/> */}
-
         <input
           onChange={handleFileChange}
           id="csvInput"
@@ -95,7 +100,7 @@ const Parser = () => {
       </p>
       <div>
         <button className={styles.button} onClick={handleParse}>
-          Convert to cards
+          Create cards
         </button>
       </div>
       <div style={{ marginTop: "3rem" }}>
@@ -113,6 +118,7 @@ function Desktop() {
         <Parser />
 
         <Card
+        id={"666"}
           name={"Booboo the Clown"}
           preferredName={"Darling"}
           title={"Bastard"}

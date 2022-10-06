@@ -8,6 +8,15 @@ function Card(props) {
 
   //conditional rendering of each data item
 
+  const showID = (() => {
+      if (props.id) {
+        return  <p>
+        <span className={styles.keyword}>ID: </span>
+        {props.id}
+      </p>
+      }
+  })();
+
   const showPreferredName = (() => {
     if (props.preferredName) {
       return <h2>{props.preferredName}</h2>;
@@ -226,19 +235,12 @@ function Card(props) {
         </div>
 
         {/* TOOLTIP */}
-
-        {/* <button
-          onMouseEnter={() => setTooltipShown(true)}
-          onMouseLeave={() => setTooltipShown(false)}
-        >
-          Hover over me!
-        </button> */}
         {tooltipShown && (
           <div className={styles.tooltip} 
           onMouseLeave={() => setTooltipShown(false)}>
             <div className={styles.infoContent}>
+              {showID}
               {showHobbies}
-
               {showLocation}
               {showDepartment}
               {showTeam}
@@ -253,6 +255,7 @@ function Card(props) {
           </div>
         )}
         {/* END TOOLTIP */}
+
       </div>
     </>
   );

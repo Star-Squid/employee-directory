@@ -70,7 +70,8 @@ export default function SmoothNavigation() {
               </li>
               <li>
                 <select id="sorter" name="sorter" form="sorter">
-                  <option value="name">name</option>
+                <option value="id">ID</option>
+                <option value="name">name</option>
                   <option value="jobtitle">job title</option>
                   <option value="location">location</option>
                   <option value="department">department</option>
@@ -226,6 +227,7 @@ export default function SmoothNavigation() {
               </li>
             </ul>
           </div>
+          <div className={styles.notmenu}  onClick={pulloutMenu}></div>
         </div>
       ) : (
         <div></div>
