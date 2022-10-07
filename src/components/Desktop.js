@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import styles from "./DesktopStyles.module.css";
 import Card from "./Card";
@@ -9,17 +9,17 @@ import UploadImg from "../images/upload.svg";
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
-const Parser = ({giveAllEmployees}) => {
+
+const Parser = ({ desktopFunctions }) => {
   //store the parsed data
   const [data, setData] = useState([]);
+
 
   // incorrect extension?
   const [error, setError] = useState("");
 
   // uploaded file
   const [file, setFile] = useState("");
-
-  const [allEmployees, setAllEmployees] = useState([]);
 
   const handleFileChange = (e) => {
     setError("");
@@ -51,50 +51,59 @@ const Parser = ({giveAllEmployees}) => {
     reader.onload = async ({ target }) => {
       const csv = Papa.parse(target.result, { header: true });
       const parsedData = csv?.data;
-      const columns = Object.keys(parsedData[0]);
-      // const row = Object.values(parsedData[1]);
+      // const columns = Object.keys(parsedData[0]);
 
-      console.log("parsedData: ", parsedData )
+      console.log("parsedData: ", parsedData);
       allParsedData = parsedData;
-      console.log(parsedData)
-      setAllEmployees(parsedData)
-      console.log(allEmployees)
-        //THIS IS A JOKE, NOT SUPPOSED TO WORK ?????
-        //HOW DOES IT KNOW TO USE parsedData[i] ????
-        
-        
-        //setAllEmployees( ["poop", "bitch"])
-
-
-        // setCards([
-        //   ...items,
-        //   {
-        //     id: items.length,
-        //     name: itemName
-        //   }
-        // ]);
-
-        // <Card/>
-      // }
-
-      
-      // const log = setData(row);
-      
-      // for (let i = 0; i< data.length; i++){
-      //   console.log(data[i])
-      // }
-      
 
       setData(parsedData);
+      
+    
+      // desktopFunctions.giveAllEmployees(data); //NO, parser doesnt finish in time
     };
     reader.readAsText(file);
 
 
 
-  
   };
 
-  
+   
+  // function err(x) {
+  //   console.log(x);
+  // }
+
+  // //this is a promise, so the 3 functions that happen after file selection can run in sequence
+  // const handleSequence = handleParse()
+  //   .then(
+  //     desktopFunctions.giveAllEmployees(data),
+  //     err("Error: can't parse file")
+  //   )
+  //   .then(desktopFunctions.handleDisplayCards(), err("Error: can't make cards"))
+  //   .catch(err("Error: can't display cards"));
+
+
+
+  //   new Promise( (resolve, reject) => {
+  //     handleParse();
+  //     if (data > 0) {
+  //        resolve("Can now run giveAllEmployees");
+  //     }jacket
+  //     else {
+  //        reject(Error("Promise rejected"));
+  //     }
+  //  }).then(function(result) {
+  //   console.log(result);
+  //    // "Promise resolved successfully"
+  //    desktopFunctions.giveAllEmployees(data);
+  // }).then(function(result) {
+  //   console.log(result);
+  //    // "Promise resolved successfully"
+  //    desktopFunctions.handleDisplayCards();
+  // }, err => {
+  //     console.log(err); // Error: "Promise rejected"
+  //  });
+
+
 
   return (
     <div className={styles.upload}>
@@ -102,8 +111,7 @@ const Parser = ({giveAllEmployees}) => {
         <h2>Upload a .csv file to start</h2>
       </label>
       <p>
-        (e.g.{" "}
-        <a href="../external/employee_directory_example.csv">this one</a>)
+        (e.g. <a href="../external/employee_directory_example.csv">this one</a>)
       </p>
       <p>
         <input
@@ -115,122 +123,115 @@ const Parser = ({giveAllEmployees}) => {
         />
       </p>
       <div>
-        {/* <button className={styles.button} onClick={() => { handleParse(); giveCards(cards)}}>
-          Create cards
-        </button> */}
+        <button
+          className={styles.button}
+          onClick={() => {
+            handleParse();
+            desktopFunctions.giveAllEmployees(data);
+            // desktopFunctions.handleDisplayCards();
+          }}
+        >
+          Synchronously do everything
+        </button>
+        <br />
+        <button
+          className={styles.button}
+          onClick={() => {
+            handleParse();
+            desktopFunctions.giveAllEmployees(data);
+            // desktopFunctions.handleDisplayCards();
+          }}
+        >
+          Do everything
+        </button>
+        <br />
         <button className={styles.button} onClick={handleParse}>
           Parse
         </button>
-        <button className={styles.button} onClick={event => {giveAllEmployees(data)}}>
-          Create cards
+        {/* this button needs to do 3 things: parse (handleParse()), giveAllEmployees(data), and handleDisplayCards  */}
+        {/* handleParse calls giveAllEmployees from Parser NO ? OR handleParse gets a promise? OR giveAllEmployees gets called through useEffect in Parser when the data state changes */}
+        {/* giveAllEmployees calls handleDisplayCards from inside Desktop */}
+        <button
+          className={styles.button}
+          onClick={(event) => {
+            desktopFunctions.giveAllEmployees(data);
+          }}
+        >
+          Create cards and hide panel
+        </button>
+        <button
+          className={styles.button}
+          onClick={desktopFunctions.handleDisplayCards}
+        >
+          hide this panel
         </button>
       </div>
-      <div style={{ marginTop: "3rem" }}>
-        {/* {error ? error : data.map((col, idx) => <div key={idx}>{col}</div>)} */}
-        {/* {error ? error : data.map(elem => <div key={elem.ID}>{elem.ID}</div>)} */}
-        {error ? error : ""}
-      </div>
+      <div style={{ marginTop: "3rem" }}>{error ? error : ""}</div>
     </div>
   );
 };
 
 function Desktop() {
+  const [displayCards, setDisplayCards] = useState(false);
   const [allCards, setAllCards] = useState([]);
-  const giveAllEmployees = (allEmployees) => {
-    setAllCards(allEmployees);
+
+  const newHandleDisplayCards = () => {
+    setDisplayCards(displayCards ? false : true);
   };
 
-//   const prepareCards = (() => {
-//     if (allCards.length>0) {
-      
-//       return  (
-//       for (let i = 0; i < allCards.length; i++){
-//       <Card
-//       id={allCards[i].ID}
-//         name={allCards[i].FullName}
-//         preferredName={allCards[i].PreferredName}
-//         title={allCards[i].JobTitle}
-//         customTitle={allCards[i].CustomTitle}
-//         department={allCards[i].Department}
-//         description={allCards[i].Description}
-//       email={allCards[i].PrimaryEmail}
-//       location={allCards[i].Location}
-//       team={allCards[i].Team}
-//       subTeam={allCards[i].SubTeam}
-//       isManager= {false}
-//       manager={allCards[i].Manager}
-//       hobby={allCards[i].Hobby}
-//       softwareSkills={allCards[i].SoftwareSkills}
-//       hardSkills={allCards[i].HardSkills}
-//       currentProjects={allCards[i].CurrentProjects}
-//       pastProjects={allCards[i].PastProjects}
-//       hireDate={allCards[i].HireDate}
-//       ></Card>
-//       }
-//       )
-//     }
-// })();
+  const desktopFunctions = {
+    handleDisplayCards: () => {
+      setDisplayCards(displayCards ? false : true);
+    },
+    giveAllEmployees: (allEmployees) => {
+      setAllCards(allEmployees);
+      newHandleDisplayCards()
+    },
+  };
+
+  // useEffect(setTimeout(desktopFunctions.handleDisplayCards(), 2000), [])
 
   return (
     <>
       <SmoothNavigation></SmoothNavigation>
       <main className={styles.desktop}>
-        <Parser giveAllEmployees={giveAllEmployees} />
-        {/* {console.log("Desktop's allCards: ", allCards)} */}
-
-        {allCards.map((card)=>{
-         return (<Card key={card.ID}
-      id={card.ID}
-        name={card.FullName}
-        preferredName={card.PreferredName}
-        title={card.JobTitle}
-        customTitle={card.CustomTitle}
-        department={card.Department}
-        description={card.Description}
-      email={card.PrimaryEmail}
-      location={card.Location}
-      team={card.Team}
-      subTeam={card.SubTeam}
-      isManager= {false}
-      manager={card.Manager}
-      hobby={card.Hobby}
-      softwareSkills={card.SoftwareSkills}
-      hardSkills={card.HardSkills}
-      currentProjects={card.CurrentProjects}
-      pastProjects={card.PastProjects}
-      hireDate={card.HireDate}
-      ></Card>)
-     })}
-
-    {/* for (let i = 0; i < allCards.length; i++){
-      <Card
-      id={allCards[i].ID}
-        name={allCards[i].FullName}
-        preferredName={allCards[i].PreferredName}
-        title={allCards[i].JobTitle}
-        customTitle={allCards[i].CustomTitle}
-        department={allCards[i].Department}
-        description={allCards[i].Description}
-      email={allCards[i].PrimaryEmail}
-      location={allCards[i].Location}
-      team={allCards[i].Team}
-      subTeam={allCards[i].SubTeam}
-      isManager= {false}
-      manager={allCards[i].Manager}
-      hobby={allCards[i].Hobby}
-      softwareSkills={allCards[i].SoftwareSkills}
-      hardSkills={allCards[i].HardSkills}
-      currentProjects={allCards[i].CurrentProjects}
-      pastProjects={allCards[i].PastProjects}
-      hireDate={allCards[i].HireDate}
-      ></Card>
-      } */}
+        {!displayCards ? (
+          // <Parser giveAllEmployees={giveAllEmployees} handleDisplayCards={handleDisplayCards} />
+          <Parser desktopFunctions={desktopFunctions} />
+        ) : (
+          allCards.map((card) => {
+            return (
+              <Card
+                key={card.ID}
+                id={card.ID}
+                name={card.FullName}
+                preferredName={card.PreferredName}
+                title={card.JobTitle}
+                customTitle={card.CustomTitle}
+                department={card.Department}
+                description={card.Description}
+                email={card.PrimaryEmail}
+                location={card.Location}
+                team={card.Team}
+                subTeam={card.SubTeam}
+                isManager={false}
+                manager={card.Manager}
+                hobby={card.Hobby}
+                softwareSkills={card.SoftwareSkills}
+                hardSkills={card.HardSkills}
+                currentProjects={card.CurrentProjects}
+                pastProjects={card.PastProjects}
+                hireDate={card.HireDate}
+              ></Card>
+            );
+          })
+        )}
 
         <Card
-        id={"666"}
-        name={allCards.length>0 ? allCards[0].ID : "nope"}
-        // name={allCards.length>0 ? "there's something" : "nope"}
-        preferredName={"Darling"}
+          id={"666"}
+          name={allCards.length > 0 ? allCards[0].ID : "nope"}
+          // name={allCards.length>0 ? "there's something" : "nope"}
+          preferredName={"Darling"}
           title={"Bastard"}
           department={"Clowning Inc"}
           isManager={true}
@@ -238,7 +239,7 @@ function Desktop() {
         ></Card>
 
         <Card
-        id={"666"}
+          id={"666"}
           name={"Booboo the Clown"}
           preferredName={"Darling"}
           title={"Bastard"}

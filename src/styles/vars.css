@@ -19,6 +19,9 @@
   --shadow-color: 0deg 0% 60%;
   --shadow-color-darker: 0deg 46% 36%;
 
+  /* --greybutton: radial-gradient(var(--almostwhite) 60%, var(--mist) 85%);
+  --greybutton-hover: radial-gradient(rgba(116,114,114,1) 60%, rgba(62,65,64,1) 85%); */
+
   --shadow:
     0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
     0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
