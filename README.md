@@ -1,5 +1,5 @@
-# Employee directory
+# <span style="color:#e4524c">Employee directory</span>
 
-A simple search and filter interface for a employee data uploaded as a .csv file.
+This is a simple search and filter interface for employee data uploaded as a .csv file.
 
-A sample file is available to download for testing.
+A sample file is provided.

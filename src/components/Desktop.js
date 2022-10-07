@@ -4,7 +4,8 @@ import styles from "./DesktopStyles.module.css";
 import Card from "./Card";
 import SmoothNavigation from "./SmoothNavigation";
 import pictureJohn from "../external/john.png";
-import UploadImg from "../images/upload.svg";
+import UploadImg from "../images/Upload";
+import Hamburger from "../images/Hamburger";
 
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
@@ -107,13 +108,11 @@ const Parser = ({ desktopFunctions }) => {
 
   return (
     <div className={styles.upload}>
-      <label htmlFor="csvInput" style={{ display: "block" }}>
-        <h2>Upload a .csv file to start</h2>
-      </label>
-      <p>
-        (e.g. <a href="../external/employee_directory_example.csv">this one</a>)
-      </p>
-      <p>
+      <label htmlFor="csvInput">
+        Upload a .csv file to start<br/>
+        <div  className={styles.icon}><UploadImg color={"#e4524c"}/></div>
+        {/* <img src={UploadImg} className={styles.icon} style={{fill: "blue"}} alt="upload file"/> */}
+     
         <input
           onChange={handleFileChange}
           id="csvInput"
@@ -121,9 +120,13 @@ const Parser = ({ desktopFunctions }) => {
           type="File"
           className={styles.inputFile}
         />
+              </label>
+
+         <p>
+        (e.g. <a href="../external/employee_directory_example.csv">this file</a>)
       </p>
       <div>
-        <button
+        {/* <button
           className={styles.button}
           onClick={() => {
             handleParse();
@@ -132,9 +135,10 @@ const Parser = ({ desktopFunctions }) => {
           }}
         >
           Synchronously do everything
-        </button>
-        <br />
-        <button
+        </button> 
+        <br />*/}
+
+        {/* <button
           className={styles.button}
           onClick={() => {
             handleParse();
@@ -143,7 +147,8 @@ const Parser = ({ desktopFunctions }) => {
           }}
         >
           Do everything
-        </button>
+        </button> */}
+
         <br />
         <button className={styles.button} onClick={handleParse}>
           Parse
@@ -159,12 +164,14 @@ const Parser = ({ desktopFunctions }) => {
         >
           Create cards and hide panel
         </button>
-        <button
+
+        {/* <button
           className={styles.button}
           onClick={desktopFunctions.handleDisplayCards}
         >
           hide this panel
-        </button>
+        </button> */}
+
       </div>
       <div style={{ marginTop: "3rem" }}>{error ? error : ""}</div>
     </div>
@@ -180,9 +187,9 @@ function Desktop() {
   };
 
   const desktopFunctions = {
-    handleDisplayCards: () => {
-      setDisplayCards(displayCards ? false : true);
-    },
+    // handleDisplayCards: () => {
+    //   setDisplayCards(displayCards ? false : true);
+    // },
     giveAllEmployees: (allEmployees) => {
       setAllCards(allEmployees);
       newHandleDisplayCards()
@@ -227,7 +234,7 @@ function Desktop() {
           })
         )}
 
-        <Card
+        {/* <Card
           id={"666"}
           name={allCards.length > 0 ? allCards[0].ID : "nope"}
           // name={allCards.length>0 ? "there's something" : "nope"}
@@ -258,7 +265,7 @@ function Desktop() {
         <Card></Card>
         <Card></Card>
         <Card></Card>
-        <Card></Card>
+        <Card></Card> */}
       </main>
     </>
   );
