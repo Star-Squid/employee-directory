@@ -23,7 +23,13 @@ function Card(props) {
     }
   })();
 
-  //name always shows
+ const showName = (() => {
+  if (props.preferredName){
+    return <h2>({props.name})</h2>
+  } else {
+    return <h2>{props.name}</h2>
+  }
+ })();
 
   const showPronoun = (() => {
     if (props.pronoun) {
@@ -38,7 +44,9 @@ function Card(props) {
   })();
 
   const showTitle = (() => {
-    if (props.title) {
+    if (props.title && props.customTitle) {
+      return <h3 className={styles.position}>({props.title})</h3>;
+    } else if (props.title) {
       return <h3 className={styles.position}>{props.title}</h3>;
     }
   })();
@@ -209,10 +217,13 @@ function Card(props) {
           }
         })()}  */}
           {showPreferredName}
-          <h2>
+          {showName}
+          {/* <h2>
+            
             {props.name}
-          </h2>
+          </h2> */}
           {showPronoun}
+          
           {showCustomTitle} {showTitle}
           <p
             className={styles.email}

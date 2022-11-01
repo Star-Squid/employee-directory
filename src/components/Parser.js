@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Papa from "papaparse";
 import styles from "./DesktopStyles.module.css";
 // import Card from "./Card";
 // import SmoothNavigation from "./SmoothNavigation";
-import Desktop from "./Desktop";
+//import Desktop from "./Desktop";
 import UploadImg from "../images/Upload";
 // import Hamburger from "../images/Hamburger";
 
@@ -41,7 +41,7 @@ const Parser = ({ desktopFunctions }) => {
     }
   };
 
-  let allParsedData;
+  //let allParsedData;
 
   const handleParse = () => {
     if (!file) return setError("Enter a valid file");
@@ -55,7 +55,7 @@ const Parser = ({ desktopFunctions }) => {
       // const columns = Object.keys(parsedData[0]);
 
       console.log("parsedData: ", parsedData);
-      allParsedData = parsedData;
+      //allParsedData = parsedData;
 
       setData(parsedData);
       
@@ -123,7 +123,7 @@ const Parser = ({ desktopFunctions }) => {
               </label>
 
          <p>
-        (e.g. <a href="../external/employee_directory_example.csv">this file</a>)
+        (<a href="../external/employee_directory_example.csv">example here</a>)
       </p>
       <div>
         {/* <button
@@ -149,7 +149,7 @@ const Parser = ({ desktopFunctions }) => {
           Do everything
         </button> */}
 
-        <br />
+      
         <button className={styles.button} onClick={handleParse}>
           Parse
         </button>
@@ -173,7 +173,8 @@ const Parser = ({ desktopFunctions }) => {
         </button> */}
 
       </div>
-      <div style={{ marginTop: "3rem" }}>{error ? error : ""}</div>
+      {error && 
+      <div style={{ marginTop: "3rem" }}>{error}</div>}
     </div>
   );
 };

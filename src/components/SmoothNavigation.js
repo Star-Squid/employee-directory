@@ -225,6 +225,18 @@ export default function SmoothNavigation() {
                   <option value="anniversarypast3">in the past 3 months</option>
                 </select>
               </li>
+              <li>
+              <details>
+    <summary>Advanced</summary>
+    <label>
+                  <input type="checkbox" name="" value="" />
+                  show valid data
+                </label><label>
+                  <input type="checkbox" name="" value="" />
+                  show invalid data
+                </label>
+</details>
+              </li>
             </ul>
           </div>
           <div className={styles.notmenu}  onClick={pulloutMenu}></div>
