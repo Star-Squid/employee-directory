@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Hamburger from "../images/Hamburger";
 import Roof from "../images/Roof";
 import styles from "./SmoothNavigation.module.css";
@@ -10,6 +10,7 @@ import Skills from "../images/skills.svg";
 import Projects from "../images/projects.svg";
 import Location from "../images/location.svg";
 import Anniversary from "../images/anniversary.svg";
+import Backdrop fom "./Backdrop"
 
 function displayRoof(isMenuOpen) {
   if (!isMenuOpen) {
@@ -225,6 +226,7 @@ export default function SmoothNavigation() {
                   <option value="anniversarypast3">in the past 3 months</option>
                 </select>
               </li>
+              <hr className={styles.hr} />
               <li>
               <details>
     <summary>Advanced</summary>
